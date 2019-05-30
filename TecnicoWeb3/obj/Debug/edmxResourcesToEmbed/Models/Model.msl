@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AreaTecnicaModelStoreContainer" CdmEntityContainer="AreaTecnicaEntities">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="AreaTecnicaModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etapa">
+      <EntityTypeMapping TypeName="AreaTecnicaModel.Etapa">
+        <MappingFragment StoreEntitySet="Etapa">
+          <ScalarProperty Name="IdEtapa" ColumnName="IdEtapa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="Tecnico_DNI" ColumnName="Tecnico_DNI" />
+          <ScalarProperty Name="Nombre_Etapa" ColumnName="Nombre_Etapa" />
+          <ScalarProperty Name="Solicitud_Reparacion_idProblema" ColumnName="Solicitud_Reparacion_idProblema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="AreaTecnicaModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
+          <ScalarProperty Name="DuracionGarantia" ColumnName="DuracionGarantia" />
+          <ScalarProperty Name="Cliente_RUC" ColumnName="Cliente_RUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repuestos">
+      <EntityTypeMapping TypeName="AreaTecnicaModel.Repuestos">
+        <MappingFragment StoreEntitySet="Repuestos">
+          <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+          <ScalarProperty Name="NombreRepuesto" ColumnName="NombreRepuesto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Etapa_IdEtapa" ColumnName="Etapa_IdEtapa" />
+          <ScalarProperty Name="Etapa_Tecnico_DNI" ColumnName="Etapa_Tecnico_DNI" />
+          <ScalarProperty Name="Etapa_Solicitud_Reparacion_idProblema" ColumnName="Etapa_Solicitud_Reparacion_idProblema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seguridad">
+      <EntityTypeMapping TypeName="AreaTecnicaModel.Seguridad">
+        <MappingFragment StoreEntitySet="Seguridad">
+          <ScalarProperty Name="Detalles" ColumnName="Detalles" />
+          <ScalarProperty Name="Tiempo" ColumnName="Tiempo" />
+          <ScalarProperty Name="Tecnico_DNI" ColumnName="Tecnico_DNI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitud_Reparacion">
+      <EntityTypeMapping TypeName="AreaTecnicaModel.Solicitud_Reparacion">
+        <MappingFragment StoreEntitySet="Solicitud_Reparacion">
+          <ScalarProperty Name="IdProblema" ColumnName="IdProblema" />
+          <ScalarProperty Name="NombreProblema" ColumnName="NombreProblema" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Cotizacion" ColumnName="Cotizacion" />
+          <ScalarProperty Name="FechaProblema" ColumnName="FechaProblema" />
+          <ScalarProperty Name="Producto_IdProducto" ColumnName="Producto_IdProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tecnico">
+      <EntityTypeMapping TypeName="AreaTecnicaModel.Tecnico">
+        <MappingFragment StoreEntitySet="Tecnico">
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

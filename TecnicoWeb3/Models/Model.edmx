@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AreaTecnicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="RUC" />
+          </Key>
+          <Property Name="RUC" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="RazonSocial" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Etapa">
+          <Key>
+            <PropertyRef Name="IdEtapa" />
+            <PropertyRef Name="Tecnico_DNI" />
+            <PropertyRef Name="Solicitud_Reparacion_idProblema" />
+          </Key>
+          <Property Name="IdEtapa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="text" Nullable="false" />
+          <Property Name="FechaIngreso" Type="date" Nullable="false" />
+          <Property Name="Tecnico_DNI" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Nombre_Etapa" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Solicitud_Reparacion_idProblema" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreProducto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaVenta" Type="date" Nullable="false" />
+          <Property Name="DuracionGarantia" Type="int" Nullable="false" />
+          <Property Name="Cliente_RUC" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Repuestos">
+          <Key>
+            <PropertyRef Name="idRepuesto" />
+          </Key>
+          <Property Name="idRepuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreRepuesto" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Etapa_IdEtapa" Type="int" Nullable="false" />
+          <Property Name="Etapa_Tecnico_DNI" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Etapa_Solicitud_Reparacion_idProblema" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seguridad">
+          <Key>
+            <PropertyRef Name="Tiempo" />
+            <PropertyRef Name="Tecnico_DNI" />
+          </Key>
+          <Property Name="Detalles" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tiempo" Type="datetime" Nullable="false" />
+          <Property Name="Tecnico_DNI" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Solicitud_Reparacion">
+          <Key>
+            <PropertyRef Name="IdProblema" />
+          </Key>
+          <Property Name="IdProblema" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreProblema" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Descripcion" Type="text" Nullable="false" />
+          <Property Name="Cotizacion" Type="int" Nullable="false" />
+          <Property Name="FechaProblema" Type="date" Nullable="false" />
+          <Property Name="Producto_IdProducto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tecnico">
+          <Key>
+            <PropertyRef Name="DNI" />
+          </Key>
+          <Property Name="DNI" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Sueldo" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="Etapa_Solicitud_Reparacion">
+          <End Role="Solicitud_Reparacion" Type="Self.Solicitud_Reparacion" Multiplicity="1" />
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud_Reparacion">
+              <PropertyRef Name="IdProblema" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="Solicitud_Reparacion_idProblema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Etapa_Tecnico">
+          <End Role="Tecnico" Type="Self.Tecnico" Multiplicity="1" />
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnico">
+              <PropertyRef Name="DNI" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="Tecnico_DNI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="RUC" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Cliente_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Repuestos_Etapa">
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="1" />
+          <End Role="Repuestos" Type="Self.Repuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etapa">
+              <PropertyRef Name="IdEtapa" />
+              <PropertyRef Name="Tecnico_DNI" />
+              <PropertyRef Name="Solicitud_Reparacion_idProblema" />
+            </Principal>
+            <Dependent Role="Repuestos">
+              <PropertyRef Name="Etapa_IdEtapa" />
+              <PropertyRef Name="Etapa_Tecnico_DNI" />
+              <PropertyRef Name="Etapa_Solicitud_Reparacion_idProblema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Solicitud_Reparacion_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Solicitud_Reparacion" Type="Self.Solicitud_Reparacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Solicitud_Reparacion">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Time_Stamp_Tecnico">
+          <End Role="Tecnico" Type="Self.Tecnico" Multiplicity="1" />
+          <End Role="Seguridad" Type="Self.Seguridad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnico">
+              <PropertyRef Name="DNI" />
+            </Principal>
+            <Dependent Role="Seguridad">
+              <PropertyRef Name="Tecnico_DNI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AreaTecnicaModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Etapa" EntityType="Self.Etapa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repuestos" EntityType="Self.Repuestos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seguridad" EntityType="Self.Seguridad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitud_Reparacion" EntityType="Self.Solicitud_Reparacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tecnico" EntityType="Self.Tecnico" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Etapa_Solicitud_Reparacion" Association="Self.Etapa_Solicitud_Reparacion">
+            <End Role="Solicitud_Reparacion" EntitySet="Solicitud_Reparacion" />
+            <End Role="Etapa" EntitySet="Etapa" />
+          </AssociationSet>
+          <AssociationSet Name="Etapa_Tecnico" Association="Self.Etapa_Tecnico">
+            <End Role="Tecnico" EntitySet="Tecnico" />
+            <End Role="Etapa" EntitySet="Etapa" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Cliente" Association="Self.Producto_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Repuestos_Etapa" Association="Self.Repuestos_Etapa">
+            <End Role="Etapa" EntitySet="Etapa" />
+            <End Role="Repuestos" EntitySet="Repuestos" />
+          </AssociationSet>
+          <AssociationSet Name="Solicitud_Reparacion_Producto" Association="Self.Solicitud_Reparacion_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Solicitud_Reparacion" EntitySet="Solicitud_Reparacion" />
+          </AssociationSet>
+          <AssociationSet Name="Time_Stamp_Tecnico" Association="Self.Time_Stamp_Tecnico">
+            <End Role="Tecnico" EntitySet="Tecnico" />
+            <End Role="Seguridad" EntitySet="Seguridad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AreaTecnicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="RUC" />
+          </Key>
+          <Property Name="RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.Producto_Cliente" FromRole="Cliente" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Etapa">
+          <Key>
+            <PropertyRef Name="IdEtapa" />
+            <PropertyRef Name="Tecnico_DNI" />
+            <PropertyRef Name="Solicitud_Reparacion_idProblema" />
+          </Key>
+          <Property Name="IdEtapa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tecnico_DNI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Etapa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Solicitud_Reparacion_idProblema" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Solicitud_Reparacion" Relationship="Self.Etapa_Solicitud_Reparacion" FromRole="Etapa" ToRole="Solicitud_Reparacion" />
+          <NavigationProperty Name="Tecnico" Relationship="Self.Etapa_Tecnico" FromRole="Etapa" ToRole="Tecnico" />
+          <NavigationProperty Name="Repuestos" Relationship="Self.Repuestos_Etapa" FromRole="Etapa" ToRole="Repuestos" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProducto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaVenta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DuracionGarantia" Type="Int32" Nullable="false" />
+          <Property Name="Cliente_RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.Producto_Cliente" FromRole="Producto" ToRole="Cliente" />
+          <NavigationProperty Name="Solicitud_Reparacion" Relationship="Self.Solicitud_Reparacion_Producto" FromRole="Producto" ToRole="Solicitud_Reparacion" />
+        </EntityType>
+        <EntityType Name="Repuestos">
+          <Key>
+            <PropertyRef Name="idRepuesto" />
+          </Key>
+          <Property Name="idRepuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreRepuesto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Etapa_IdEtapa" Type="Int32" Nullable="false" />
+          <Property Name="Etapa_Tecnico_DNI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Etapa_Solicitud_Reparacion_idProblema" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Etapa" Relationship="Self.Repuestos_Etapa" FromRole="Repuestos" ToRole="Etapa" />
+        </EntityType>
+        <EntityType Name="Seguridad">
+          <Key>
+            <PropertyRef Name="Tiempo" />
+            <PropertyRef Name="Tecnico_DNI" />
+          </Key>
+          <Property Name="Detalles" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tiempo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Tecnico_DNI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tecnico" Relationship="Self.Time_Stamp_Tecnico" FromRole="Seguridad" ToRole="Tecnico" />
+        </EntityType>
+        <EntityType Name="Solicitud_Reparacion">
+          <Key>
+            <PropertyRef Name="IdProblema" />
+          </Key>
+          <Property Name="IdProblema" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProblema" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cotizacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaProblema" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Producto_IdProducto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Etapa" Relationship="Self.Etapa_Solicitud_Reparacion" FromRole="Solicitud_Reparacion" ToRole="Etapa" />
+          <NavigationProperty Name="Producto" Relationship="Self.Solicitud_Reparacion_Producto" FromRole="Solicitud_Reparacion" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Tecnico">
+          <Key>
+            <PropertyRef Name="DNI" />
+          </Key>
+          <Property Name="DNI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sueldo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Etapa" Relationship="Self.Etapa_Tecnico" FromRole="Tecnico" ToRole="Etapa" />
+          <NavigationProperty Name="Seguridad" Relationship="Self.Time_Stamp_Tecnico" FromRole="Tecnico" ToRole="Seguridad" />
+        </EntityType>
+        <Association Name="Producto_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="RUC" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Cliente_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Etapa_Solicitud_Reparacion">
+          <End Role="Solicitud_Reparacion" Type="Self.Solicitud_Reparacion" Multiplicity="1" />
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud_Reparacion">
+              <PropertyRef Name="IdProblema" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="Solicitud_Reparacion_idProblema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Etapa_Tecnico">
+          <End Role="Tecnico" Type="Self.Tecnico" Multiplicity="1" />
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnico">
+              <PropertyRef Name="DNI" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="Tecnico_DNI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Repuestos_Etapa">
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="1" />
+          <End Role="Repuestos" Type="Self.Repuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etapa">
+              <PropertyRef Name="IdEtapa" />
+              <PropertyRef Name="Tecnico_DNI" />
+              <PropertyRef Name="Solicitud_Reparacion_idProblema" />
+            </Principal>
+            <Dependent Role="Repuestos">
+              <PropertyRef Name="Etapa_IdEtapa" />
+              <PropertyRef Name="Etapa_Tecnico_DNI" />
+              <PropertyRef Name="Etapa_Solicitud_Reparacion_idProblema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Solicitud_Reparacion_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Solicitud_Reparacion" Type="Self.Solicitud_Reparacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Solicitud_Reparacion">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Time_Stamp_Tecnico">
+          <End Role="Tecnico" Type="Self.Tecnico" Multiplicity="1" />
+          <End Role="Seguridad" Type="Self.Seguridad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnico">
+              <PropertyRef Name="DNI" />
+            </Principal>
+            <Dependent Role="Seguridad">
+              <PropertyRef Name="Tecnico_DNI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AreaTecnicaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Etapa" EntityType="Self.Etapa" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Repuestos" EntityType="Self.Repuestos" />
+          <EntitySet Name="Seguridad" EntityType="Self.Seguridad" />
+          <EntitySet Name="Solicitud_Reparacion" EntityType="Self.Solicitud_Reparacion" />
+          <EntitySet Name="Tecnico" EntityType="Self.Tecnico" />
+          <AssociationSet Name="Producto_Cliente" Association="Self.Producto_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Etapa_Solicitud_Reparacion" Association="Self.Etapa_Solicitud_Reparacion">
+            <End Role="Solicitud_Reparacion" EntitySet="Solicitud_Reparacion" />
+            <End Role="Etapa" EntitySet="Etapa" />
+          </AssociationSet>
+          <AssociationSet Name="Etapa_Tecnico" Association="Self.Etapa_Tecnico">
+            <End Role="Tecnico" EntitySet="Tecnico" />
+            <End Role="Etapa" EntitySet="Etapa" />
+          </AssociationSet>
+          <AssociationSet Name="Repuestos_Etapa" Association="Self.Repuestos_Etapa">
+            <End Role="Etapa" EntitySet="Etapa" />
+            <End Role="Repuestos" EntitySet="Repuestos" />
+          </AssociationSet>
+          <AssociationSet Name="Solicitud_Reparacion_Producto" Association="Self.Solicitud_Reparacion_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Solicitud_Reparacion" EntitySet="Solicitud_Reparacion" />
+          </AssociationSet>
+          <AssociationSet Name="Time_Stamp_Tecnico" Association="Self.Time_Stamp_Tecnico">
+            <End Role="Tecnico" EntitySet="Tecnico" />
+            <End Role="Seguridad" EntitySet="Seguridad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AreaTecnicaModelStoreContainer" CdmEntityContainer="AreaTecnicaEntities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="AreaTecnicaModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etapa">
+            <EntityTypeMapping TypeName="AreaTecnicaModel.Etapa">
+              <MappingFragment StoreEntitySet="Etapa">
+                <ScalarProperty Name="IdEtapa" ColumnName="IdEtapa" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="Tecnico_DNI" ColumnName="Tecnico_DNI" />
+                <ScalarProperty Name="Nombre_Etapa" ColumnName="Nombre_Etapa" />
+                <ScalarProperty Name="Solicitud_Reparacion_idProblema" ColumnName="Solicitud_Reparacion_idProblema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="AreaTecnicaModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
+                <ScalarProperty Name="DuracionGarantia" ColumnName="DuracionGarantia" />
+                <ScalarProperty Name="Cliente_RUC" ColumnName="Cliente_RUC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repuestos">
+            <EntityTypeMapping TypeName="AreaTecnicaModel.Repuestos">
+              <MappingFragment StoreEntitySet="Repuestos">
+                <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+                <ScalarProperty Name="NombreRepuesto" ColumnName="NombreRepuesto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Etapa_IdEtapa" ColumnName="Etapa_IdEtapa" />
+                <ScalarProperty Name="Etapa_Tecnico_DNI" ColumnName="Etapa_Tecnico_DNI" />
+                <ScalarProperty Name="Etapa_Solicitud_Reparacion_idProblema" ColumnName="Etapa_Solicitud_Reparacion_idProblema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seguridad">
+            <EntityTypeMapping TypeName="AreaTecnicaModel.Seguridad">
+              <MappingFragment StoreEntitySet="Seguridad">
+                <ScalarProperty Name="Detalles" ColumnName="Detalles" />
+                <ScalarProperty Name="Tiempo" ColumnName="Tiempo" />
+                <ScalarProperty Name="Tecnico_DNI" ColumnName="Tecnico_DNI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitud_Reparacion">
+            <EntityTypeMapping TypeName="AreaTecnicaModel.Solicitud_Reparacion">
+              <MappingFragment StoreEntitySet="Solicitud_Reparacion">
+                <ScalarProperty Name="IdProblema" ColumnName="IdProblema" />
+                <ScalarProperty Name="NombreProblema" ColumnName="NombreProblema" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cotizacion" ColumnName="Cotizacion" />
+                <ScalarProperty Name="FechaProblema" ColumnName="FechaProblema" />
+                <ScalarProperty Name="Producto_IdProducto" ColumnName="Producto_IdProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tecnico">
+            <EntityTypeMapping TypeName="AreaTecnicaModel.Tecnico">
+              <MappingFragment StoreEntitySet="Tecnico">
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
