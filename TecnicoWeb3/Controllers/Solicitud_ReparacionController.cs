@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -17,8 +15,7 @@ namespace TecnicoWeb3.Controllers
 {
     [EnableCors(origins: "http://localhost", headers: "*", methods: "*")]
     public class Solicitud_ReparacionController : ApiController
-    {
-        
+    {       
         public Solicitud_ReparacionController()
         {
             db.Configuration.ProxyCreationEnabled = false;
@@ -53,7 +50,7 @@ namespace TecnicoWeb3.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != solicitud_Reparacion.IdProblema)
+            if (id != solicitud_Reparacion.IdSolicitud)
             {
                 return BadRequest();
             }
@@ -91,7 +88,7 @@ namespace TecnicoWeb3.Controllers
             db.Solicitud_Reparacion.Add(solicitud_Reparacion);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = solicitud_Reparacion.IdProblema }, solicitud_Reparacion);
+            return CreatedAtRoute("DefaultApi", new { id = solicitud_Reparacion.IdSolicitud }, solicitud_Reparacion);
         }
 
         // DELETE: api/Solicitud_Reparacion/5
@@ -130,7 +127,7 @@ namespace TecnicoWeb3.Controllers
 
         private bool Solicitud_ReparacionExists(int id)
         {
-            return db.Solicitud_Reparacion.Count(e => e.IdProblema == id) > 0;
+            return db.Solicitud_Reparacion.Count(e => e.IdSolicitud == id) > 0;
         }
     }
 }

@@ -7,10 +7,10 @@
       <Diagram DiagramId="5a9a33ee034d4ff398a471a27630de98" Name="Diagram1">
         <EntityTypeShape EntityType="AreaTecnicaModel.Cliente" Width="1.5" PointX="1.5" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AreaTecnicaModel.Etapa" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AreaTecnicaModel.Producto" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AreaTecnicaModel.Producto" Width="2.125" PointX="1.5" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AreaTecnicaModel.Repuestos" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AreaTecnicaModel.Seguridad" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AreaTecnicaModel.Solicitud_Reparacion" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AreaTecnicaModel.Solicitud_Reparacion" Width="1.875" PointX="0.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AreaTecnicaModel.Tecnico" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <AssociationConnector Association="AreaTecnicaModel.Producto_Cliente" ManuallyRouted="false" />
         <AssociationConnector Association="AreaTecnicaModel.Etapa_Solicitud_Reparacion" ManuallyRouted="false" />

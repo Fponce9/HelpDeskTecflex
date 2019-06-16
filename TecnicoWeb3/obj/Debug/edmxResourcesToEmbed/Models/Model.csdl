@@ -63,13 +63,13 @@
   </EntityType>
   <EntityType Name="Solicitud_Reparacion">
     <Key>
-      <PropertyRef Name="IdProblema" />
+      <PropertyRef Name="IdSolicitud" />
     </Key>
-    <Property Name="IdProblema" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NombreProblema" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdSolicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreSolicitud" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Cotizacion" Type="Int32" Nullable="false" />
-    <Property Name="FechaProblema" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Producto_IdProducto" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Etapa" Relationship="Self.Etapa_Solicitud_Reparacion" FromRole="Solicitud_Reparacion" ToRole="Etapa" />
     <NavigationProperty Name="Producto" Relationship="Self.Solicitud_Reparacion_Producto" FromRole="Solicitud_Reparacion" ToRole="Producto" />
@@ -103,7 +103,7 @@
     <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Solicitud_Reparacion">
-        <PropertyRef Name="IdProblema" />
+        <PropertyRef Name="IdSolicitud" />
       </Principal>
       <Dependent Role="Etapa">
         <PropertyRef Name="Solicitud_Reparacion_idProblema" />

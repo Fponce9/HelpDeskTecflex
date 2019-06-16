@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AreaTecnicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AreaTecnicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="RUC" />
@@ -188,8 +188,7 @@
             <End Role="Seguridad" EntitySet="Seguridad" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AreaTecnicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -256,13 +255,13 @@
         </EntityType>
         <EntityType Name="Solicitud_Reparacion">
           <Key>
-            <PropertyRef Name="IdProblema" />
+            <PropertyRef Name="IdSolicitud" />
           </Key>
-          <Property Name="IdProblema" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreProblema" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdSolicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreSolicitud" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Cotizacion" Type="Int32" Nullable="false" />
-          <Property Name="FechaProblema" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Producto_IdProducto" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Etapa" Relationship="Self.Etapa_Solicitud_Reparacion" FromRole="Solicitud_Reparacion" ToRole="Etapa" />
           <NavigationProperty Name="Producto" Relationship="Self.Solicitud_Reparacion_Producto" FromRole="Solicitud_Reparacion" ToRole="Producto" />
@@ -296,7 +295,7 @@
           <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Solicitud_Reparacion">
-              <PropertyRef Name="IdProblema" />
+              <PropertyRef Name="IdSolicitud" />
             </Principal>
             <Dependent Role="Etapa">
               <PropertyRef Name="Solicitud_Reparacion_idProblema" />
@@ -452,11 +451,11 @@
           <EntitySetMapping Name="Solicitud_Reparacion">
             <EntityTypeMapping TypeName="AreaTecnicaModel.Solicitud_Reparacion">
               <MappingFragment StoreEntitySet="Solicitud_Reparacion">
-                <ScalarProperty Name="IdProblema" ColumnName="IdProblema" />
-                <ScalarProperty Name="NombreProblema" ColumnName="NombreProblema" />
+                <ScalarProperty Name="IdSolicitud" ColumnName="IdProblema" />
+                <ScalarProperty Name="NombreSolicitud" ColumnName="NombreProblema" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Cotizacion" ColumnName="Cotizacion" />
-                <ScalarProperty Name="FechaProblema" ColumnName="FechaProblema" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaProblema" />
                 <ScalarProperty Name="Producto_IdProducto" ColumnName="Producto_IdProducto" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -59,11 +59,11 @@
     <EntitySetMapping Name="Solicitud_Reparacion">
       <EntityTypeMapping TypeName="AreaTecnicaModel.Solicitud_Reparacion">
         <MappingFragment StoreEntitySet="Solicitud_Reparacion">
-          <ScalarProperty Name="IdProblema" ColumnName="IdProblema" />
-          <ScalarProperty Name="NombreProblema" ColumnName="NombreProblema" />
+          <ScalarProperty Name="IdSolicitud" ColumnName="IdProblema" />
+          <ScalarProperty Name="NombreSolicitud" ColumnName="NombreProblema" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Cotizacion" ColumnName="Cotizacion" />
-          <ScalarProperty Name="FechaProblema" ColumnName="FechaProblema" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaProblema" />
           <ScalarProperty Name="Producto_IdProducto" ColumnName="Producto_IdProducto" />
         </MappingFragment>
       </EntityTypeMapping>

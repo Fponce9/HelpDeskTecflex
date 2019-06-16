@@ -135,5 +135,11 @@ namespace TecnicoWeb3.Controllers
         {
             return db.Cliente.Count(e => e.RUC == id) > 0;
         }
+        //[Route("api/Clientes/{}")]
+        //public IQueryable<Etapa> GetSolicitud_Reparacion_Producto(int idSolicitud)
+        //{
+        //    var q = from p in db.Etapa where p.Solicitud_Reparacion_idProblema.Equals(idSolicitud) select p;
+        //    return q;
+        //}
     }
 }

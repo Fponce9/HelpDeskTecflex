@@ -13,7 +13,7 @@ using System.Web.Http.Cors;
 
 namespace TecnicoWeb3.Controllers
 {
-    [EnableCors(origins: "http://localhost", headers: "*", methods:"*" )]
+    [EnableCors(origins: "http://localhost", headers: "*", methods: "*" )]
     public class EtapasController : ApiController
     {
         public EtapasController()

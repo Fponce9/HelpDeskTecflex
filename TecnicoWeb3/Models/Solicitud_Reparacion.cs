@@ -20,11 +20,11 @@ namespace TecnicoWeb3.Models
             this.Etapa = new HashSet<Etapa>();
         }
     
-        public int IdProblema { get; set; }
-        public string NombreProblema { get; set; }
+        public int IdSolicitud { get; set; }
+        public string NombreSolicitud { get; set; }
         public string Descripcion { get; set; }
         public int Cotizacion { get; set; }
-        public System.DateTime FechaProblema { get; set; }
+        public System.DateTime FechaSolicitud { get; set; }
         public int Producto_IdProducto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
