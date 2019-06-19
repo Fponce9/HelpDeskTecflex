@@ -109,7 +109,7 @@ namespace TecnicoWeb3.Controllers
 
         // GET: api/EtapasSolicitudReparacion/{idSolicitud}
         [Route("api/EtapasSolicitudReparacion/{idSolicitud}")]
-        public IQueryable<Etapa> GetSolicitud_Reparacion_Producto(int idSolicitud)
+        public IQueryable<Etapa> GetSolicitud_Reparacion_Producto(int idSolicitud) 
         {
             var q = from p in db.Etapa where p.Solicitud_Reparacion_idProblema.Equals(idSolicitud) select p;
             return q;

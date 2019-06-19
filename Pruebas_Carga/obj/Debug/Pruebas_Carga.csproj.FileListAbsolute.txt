@@ -1,0 +1,11 @@
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\bin\Debug\WebTest1.webtest
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\bin\Debug\LoadTest.loadtest
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\bin\Debug\Pruebas_Carga.dll
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\bin\Debug\Pruebas_Carga.pdb
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\bin\Debug\es\Microsoft.VisualStudio.QualityTools.WebTestFramework.resources.dll
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\obj\Debug\Pruebas_Carga.csprojAssemblyReference.cache
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\obj\Debug\Pruebas_Carga.csproj.CoreCompileInputs.cache
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\obj\Debug\Pruebas_Carga.csproj.CopyComplete
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\obj\Debug\Pruebas_Carga.dll
+D:\Tecflex\TecnicoWeb3\Pruebas_Carga\obj\Debug\Pruebas_Carga.pdb
