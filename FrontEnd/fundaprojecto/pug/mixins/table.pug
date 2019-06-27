@@ -1,0 +1,28 @@
+mixin Table(a_id,...names)
+    table.Main-Table
+        thead
+            tr.Main-Fila-header
+                each name in names
+                    th.Main-Columna=name
+        tbody(id = a_id)
+            block
+
+
+mixin Adicional(...names)
+
+    tr.Main-Fila
+        each name in names
+            td.Main-Columna=name
+    block
+mixin AdicionalB(...names)
+
+    tr.Main-Fila
+        each name in names
+            td.Main-Columna=name
+        td 
+            button.Table-Boton="ver"
+    block
+
+
+
+

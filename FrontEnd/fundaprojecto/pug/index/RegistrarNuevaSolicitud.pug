@@ -1,0 +1,29 @@
+include ../mixins/header.pug
+include ../mixins/table.pug
+include ../mixins/formulariocontent.pug
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title TecFlex
+        link(rel="stylesheet", href="./../style.css")
+        link(href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap" rel="stylesheet")
+    body
+        +header("Buscar Producto","#","Cerrar Sesión","#","../asserts/logo.png")
+        main.Main
+
+            h1.Main-Title|Registrar Nueva Solicitud
+
+            form(action="#")(.Formulario .Formulario-diferente )   
+                .Formulario-grid
+                    +formcont5('IdProducto: ')
+                    +formcont5('Corizacion: ')
+                    +formcont5('Nombre del Producto: ')
+                    +formcont5('Fecha del Problema: ')
+                    +formcont3('Descripción: ')
+                .Formulario-Botones
+                    button.Formulario-Boton="Registrar"
+                    button.Formulario-Boton="Cancelar"
+    script(src="../js/jquery.js")

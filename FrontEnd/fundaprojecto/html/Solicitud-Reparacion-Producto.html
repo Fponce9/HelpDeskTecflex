@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TecFlex</title>
+    <link rel="stylesheet" href="./../style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:400,500,700&amp;display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header class="Header"><img class="Header-Logo" src="../asserts/logo.png" alt="Logo de TecFlex"/>
+      <div class="Header-Menu Menu">
+        <lu class="Menu-Submenu">
+          <li class="Menu-Iteam"><a class="Menu-Link" href="#">Buscar Producto</a></li>
+          <li class="Menu-submenu">   <a class="Menu-Link" href="#">Cerrar Sesión</a></li>
+        </lu>
+      </div>
+    </header>
+    <main class="Main">
+      <h1 class="Main-Title">Historial de Solicitud de Reparacion del Producto  </h1>
+      <div class="Container" id="dato">
+        <div class="Main-Container"><a class="Main-Boton2" id="boton_voler" href="#">Volver</a></div>
+      </div>
+      <table class="Main-Table">
+        <thead>
+          <tr class="Main-Fila-header">
+            <th class="Main-Columna">Id del Problema</th>
+            <th class="Main-Columna">Nombre de Solicitud</th>
+            <th class="Main-Columna">Descripción</th>
+            <th class="Main-Columna">Cotización</th>
+            <th class="Main-Columna"> </th>
+            <th class="Main-Columna">Fecha de Problema</th>
+            <th class="Main-Columna"> </th>
+            <th class="Main-Columna">Etapa</th>
+            <th class="Main-Columna">Actualizar</th>            
+          </tr>
+        </thead>
+        <tbody id="a_tbody">
+        </tbody>
+      </table>
+      <div class="container-boton"><a id ="Registrar_Nueva_Solicitud"class="boton" href="#">Registrar Solicitud de Reparacion</a>
+      </div>
+    </main>
+  </body>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/Historial-Solicitud-Reparacion-Productos.js"></script>
+</html>

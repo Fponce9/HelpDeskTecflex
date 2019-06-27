@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TecFlex</title>
+    <link rel="stylesheet" href="./../style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&amp;display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header class="Header"><img class="Header-Logo" src="../asserts/logo.png" alt="Logo de TecFlex"/>
+      <div class="Header-Menu Menu">
+        <lu class="Menu-Submenu">
+          <li class="Menu-Iteam"><a class="Menu-Link" href="#">Buscar Producto</a></li>
+          <li class="Menu-submenu">   <a class="Menu-Link" href="#">Cerrar Sesión</a></li>
+        </lu>
+      </div>
+    </header>
+    <main class="Main">
+      <h1 class="Main-Title">Registrar Nueva Etapas</h1>
+      <form class="Formulario" action="sendmail.php" method="post">
+        <div class="Formulario-Content">
+          <label class="Formulario-Label" for="name">Nombre de Etapa</label>
+          <select class="Formulario-Input" name="select" id="iname">
+            <option value="Identificación">Identificación</option>
+            <option value="Ingreso">Ingreso</option>
+            <option value="Analizando">Analizando</option>
+            <option value="Reparación">Reparación</option>
+            <option value="Solución">Solución</option>
+          </select>
+        </div>
+        <div class="Formulario-Content">
+          <label class="Formulario-Label" for="name">Descripción</label>
+          <textarea class="Formulario-Input Formulario-Big" id="idescri">  </textarea>
+        </div>
+        <div class="Formulario-Content">
+          <label class="Formulario-Label" for="name">Fecha de Ingreso</label>
+          <input class="Formulario-Input" type="date" id="ifecha"/>
+        </div>
+        <div class="Formulario-Botones">
+          <button type="submit"  class="Formulario-Boton" id="add-order">Registrar</button>
+          <a type="button"  class="Formulario-Boton" id="boton_voler">Cancelar</a>
+        </div>
+      </form>
+    </main>
+  </body>
+  <script src="../js/jquery.js"></script>
+  <script src="../Js/RegistrarNuevaEtapa.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script>
+	var $nombre=$('#iname') ;
+	var $descri=$('#idescri') ;
+	var $idfecha=$('#ifecha');
+	var id=1;
+	$('#add-order').on('click', function(){
+			var etapa ={
+				Descripcion:$descri.val(),
+				Tecnico_DNI:"72515022",
+				Nombre_Etapa:$nombre.val(),
+				FechaIngreso:$idfecha.val(),
+				Solicitud_Reparacion_idProblema:localStorage.getItem('id_solicitud'),
+			};
+			$.ajax({
+				type:'POST',
+				dataType:'json',
+				url: 'http://localhost:50086/api/Etapas',
+				data:etapa,
+				success: function (etapa){
+					alert('agregado correctamente');
+				},
+				error: function()
+				{
+					alert('error');
+				}
+			});
+		});
+	$('#add-order-act').on('click', function(){
+			var etapa ={
+			Descripcion:$descri.val(),
+			Tecnico_DNI:"72515022",
+			Nombre_Etapa:$nombre.val(),
+			FechaIngreso:$idfecha.val(),
+			Solicitud_Reparacion_idProblema:1,
+			IdEtapa:1
+			};
+			
+			$.ajax({
+				type:'PUT',
+				url: 'http://localhost:50086/api/Etapas/1',
+				data:etapa,
+				success: function (etapa){
+					alert('actualizado correctamente');
+				},
+				error: function()
+				{
+					alert('error');
+				}
+			});
+		});
+  </script>
+</html>

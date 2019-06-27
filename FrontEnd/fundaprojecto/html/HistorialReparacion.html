@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TecFlex</title>
+    <link rel="stylesheet" href="./../style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:400,500,700&amp;display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header class="Header"><img class="Header-Logo" src="../asserts/logo.png" alt="Logo de TecFlex"/>
+      <div class="Header-Menu Menu">
+        <lu class="Menu-Submenu">
+          <li class="Menu-Iteam"><a class="Menu-Link" href="#">Buscar Producto</a></li>
+          <li class="Menu-submenu">   <a class="Menu-Link" href="#">Cerrar Sesión</a></li>
+        </lu>
+      </div>
+    </header>
+    <main class="Main">
+      <h1 class="Main-Title">Historial de Solicitud de Reparación</h1>
+      <div class="Main-Producto">
+        <div class="Main-IdProducto">
+          <h2 class="Main-Subtitle">Id del Producto</h2>
+          <p class="Main-Date">1</p>
+        </div>
+        <div class="Main-NameProducto">
+          <h2 class="Main-Subtitle">Nombre del Producto</h2>
+          <p class="Main-Date">Lector</p>
+        </div>
+        <div class="Main-FechaProblema">
+          <h2 class="Main-Subtitle">Fecha del Problema</h2>
+          <p class="Main-Date">28/05/2019</p>
+        </div>
+        <div class="Main-Container"><a class="Main-Boton" type="submit">Volver</a></div>
+      </div>
+      <table class="Main-Table">
+        <thead>
+          <tr class="Main-Fila-header">
+            <th class="Main-Columna">Id del Producto</th>
+            <th class="Main-Columna">Garantia</th>
+            <th class="Main-Columna">Fecha de Venta</th>
+            <th class="Main-Columna">Reparación</th>
+            <th class="Main-Columna">Etapa</th>
+          </tr>
+        </thead>
+        <tbody id="Nombre del Producto">            
+          <tr class="Main-Fila">
+            <td class="Main-Columna">Molino</td>
+            <td class="Main-Columna">76043228</td>
+            <td class="Main-Columna">Si</td>
+            <td class="Main-Columna">21/04/2019</td>
+            <td class="Main-Columna">No</td>
+            <td> 
+              <button class="Table-Boton">ver</button>
+            </td>
+          </tr>
+          <tr class="Main-Fila">
+            <td class="Main-Columna">Molino</td>
+            <td class="Main-Columna">76043228</td>
+            <td class="Main-Columna">Si</td>
+            <td class="Main-Columna">21/04/2019</td>
+            <td class="Main-Columna">No</td>
+            <td> 
+              <button class="Table-Boton">ver</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="containers-boton"><a class="boton" href="#">Registrar Respuesta</a><a class="boton" href="#">Agragar Etapa</a>
+      </div>
+    </main>
+  </body>
+  <script src="../js/jquery.js"></script>
+</html>

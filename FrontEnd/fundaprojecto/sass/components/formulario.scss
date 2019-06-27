@@ -1,0 +1,93 @@
+.Formulario{
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    &-diferente{
+        max-width: 1200px;
+    }
+    &-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+    &-Content{
+        justify-self: center;
+        align-self: center;
+        margin-top: 2em;    
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+    }
+    &-Label{
+        width: 8em;
+        font-size: 1em;
+        justify-self: end;
+    }
+    &-Label-normal{
+        width: 8em;
+        font-size: 1em;
+        justify-self: end;
+        font-weight: normal;
+    }
+    &-Input{
+        border: 1px solid $Secondary-Color;
+        border-radius: .5em;
+        color: $Secondary-Color;
+        padding: .5em;
+        &:hover{
+            border: 1px solid $Primary-Color;
+            background: $Tertiary-Color;
+        }
+        &:focus{
+           outline: 0 none;
+           border: 1px solid $Primary-Color;
+           background: $Tertiary-Color;
+        }
+    }
+
+    &-Botones{
+        max-width: 260px;
+        margin-top: 4em;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    &-Boton{
+        font-size: .80em;
+        border: 1px solid $Secondary-Color;
+        border-radius: .5em;
+        padding: 1em;
+        background: $Secondary-Color;
+        color: $Tertiary-Color;
+        margin-left: 2em;
+        &:hover{
+            background: $Primary-Color;
+            border: 1px solid $Primary-Color;
+
+        }
+    }
+  
+    &-Big{
+        height: 6em;
+
+        &::-webkit-scrollbar{
+            width: 12px;
+            background-color: $Primary-Color;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px $Secondary-Color;
+            background-color: $Secondary-Color; }
+    }
+    
+    &-link{
+
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 2em;
+        & a{
+            color: $Secondary-Color;
+        }
+    }
+}

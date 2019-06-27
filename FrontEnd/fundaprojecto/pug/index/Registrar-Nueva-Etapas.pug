@@ -1,0 +1,47 @@
+include ../mixins/header.pug
+include ../mixins/table.pug
+include ../mixins/formulariocontent.pug
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title TecFlex
+        link(rel="stylesheet", href="./../style.css")
+        link(href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap" rel="stylesheet")
+    body
+        +header("Buscar Producto","#","Cerrar Sesión","#","../asserts/logo.png")
+        main.Main
+
+            h1.Main-Title|Registrar Nueva Etapas
+
+            form(action="#").Formulario
+
+                +formcont('nombre','Nombre de Etapa','Identificación','Reparación','Solución','Sin Solución')
+                +formcont3('descripcion','Descripción')
+                +formcont2('fecha','Fecha de Ingreso')
+                .Formulario-Botones
+                    a(id="add-order",class="Formulario-Boton")="Registrar"
+                    a.Formulario-Boton="Cancelar"
+    script(src="../js/jquery.js")
+    script(src="../js/Agregar-Etapa.js")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

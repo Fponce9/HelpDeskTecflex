@@ -1,0 +1,27 @@
+.Header{
+    height: $Header-Height;
+    display: flex;
+    max-width: $Header-Width-Max;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: $Primary-Color;
+    &-Logo{
+        height: $Logo-Height;
+        margin-top: 1em;
+        margin-bottom: 1em;
+
+    }
+    &::before {
+        content: " ";
+        
+        height: $Header-Height;
+        width: 100vw;
+        background: $Primary-Color;
+        position: absolute;
+        left: 0;
+        z-index: $Z-Index-Back;
+        }
+}

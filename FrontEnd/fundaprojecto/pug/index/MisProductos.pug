@@ -1,0 +1,26 @@
+include ../mixins/header.pug
+include ../mixins/table.pug
+include ../mixins/formulariocontent.pug
+include ../mixins/boton.pug
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title TecFlex
+        link(rel="stylesheet", href="./../style.css")
+        link(href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:400,500,700&display=swap", rel="stylesheet")
+    body
+        +header("Buscar Producto","#","Cerrar Sesión","#","../asserts/logo.png")
+        main.Main
+
+            h1.Main-Title|Historial de Productos
+            .Container#ruc_pro
+                .Main-Container
+                    a#volver_vli.Main-Boton2(href ="#")|Volver
+            +Table('a_tbody','Id del Producto','Nombre del Producto','Fecha de Venta','Garantia',' ','Etapa')             
+             
+
+    script(src="../js/jquery.js")              
+    script(src="../js/Historial-Productos.js")

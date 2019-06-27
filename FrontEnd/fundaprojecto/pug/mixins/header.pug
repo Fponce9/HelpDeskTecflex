@@ -1,0 +1,10 @@
+mixin header(name1,link1,name2,link2,img)
+    header.Header
+        img(src=img, alt="Logo de TecFlex").Header-Logo
+        .Header-Menu.Menu
+            lu.Menu-Submenu
+                li.Menu-Iteam
+                    a.Menu-Link(href= link1)=name1
+                li.Menu-submenu    
+                    a.Menu-Link(href= link2)=name2
+                

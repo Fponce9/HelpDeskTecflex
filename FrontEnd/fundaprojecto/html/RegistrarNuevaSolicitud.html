@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TecFlex</title>
+    <link rel="stylesheet" href="./../style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&amp;display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header class="Header"><img class="Header-Logo" src="../asserts/logo.png" alt="Logo de TecFlex"/>
+      <div class="Header-Menu Menu">
+        <lu class="Menu-Submenu">
+          <li class="Menu-Iteam"><a class="Menu-Link" href="#">Buscar Producto</a></li>
+          <li class="Menu-submenu">   <a class="Menu-Link" href="#">Cerrar Sesión</a></li>
+        </lu>
+      </div>
+    </header>
+    <main class="Main">
+      <h1 class="Main-Title">Registrar Nueva Solicitud</h1>
+      <form action="#" .Formulario=".Formulario" .Formulario-diferente=".Formulario-diferente">  
+        <div class="Formulario-grid">
+          <div class="Formulario-Content">
+            <label class="Formulario-Label" for="name">Cotizacion: </label>
+            <input class="Formulario-Input" id="icoti" type="text"/>
+          </div>
+          <div class="Formulario-Content">
+            <label class="Formulario-Label" for="name">Nombre de Solicitud: </label>
+            <input class="Formulario-Input" id="iname" type="text"/>
+          </div>
+          <div class="Formulario-Content">
+            <label class="Formulario-Label" for="name">Fecha de Ingreso: </label>
+            <input class="Formulario-Input" id="ifecha" type="date"/>
+          </div>
+          <div class="Formulario-Content">
+            <label class="Formulario-Label" for="name">Descripción</label>
+            <textarea class="Formulario-Input Formulario-Big" id="idescri">  </textarea>
+          </div>
+        </div>
+        <div class="Formulario-Botones">
+          <a type="button" class="Formulario-Boton" id="add-order" src = "#">Registrar</a>
+          <a type="button"  class="Formulario-Boton" id="boton_voler">Cancelar</a>
+        </div>
+      </form>
+    </main>
+  </body>
+  <script src="../js/jquery.js"></script>
+  <script src="../Js/RegistrarNuevaSolicitud.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script>
+	var $nombre=$('#iname') ;
+	var $descri=$('#idescri') ;
+	var $coti=$('#icoti');
+	var $idfecha=$('#ifecha');
+  var id=1;
+	$('#add-order').on('click', function(){
+			var etapa ={
+				IdSolicitud:1,
+				Descripcion:$descri.val(),
+				NombreSolicitud:$nombre.val(),
+				Cotizacion:$coti.val(),
+				FechaSolicitud:$idfecha.val(),
+				Producto_IdProducto:parseInt(localStorage.getItem('id_producto')),
+			};
+			$.ajax({
+				type:'POST',
+				url: 'http://localhost:50086/api/Solicitud_Reparacion',
+				data:etapa,
+				success: function (etapa){
+          alert('agregado correctamente');
+				},
+				error: function()
+				{
+					alert('error faltan datos.');
+				}
+			});
+			$.post("sendmail.php",{
+			
+			});
+		});
+
+
+	
+  </script>
+</html>

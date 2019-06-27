@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TecFlex</title>
+    <link rel="stylesheet" href="./../style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:400,500,700&amp;display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header class="Header"><img class="Header-Logo" src="../asserts/logo.png" alt="Logo de TecFlex"/>
+      <div class="Header-Menu Menu">
+        <lu class="Menu-Submenu">
+          <li class="Menu-Iteam"><a class="Menu-Link" href="#">Buscar Producto</a></li>
+          <li class="Menu-submenu">   <a class="Menu-Link" href="#">Cerrar Sesión</a></li>
+        </lu>
+      </div>
+    </header>
+    <main class="Main">
+      <h1 class="Main-Title">Historial de Repuestos usados en la Etapa</h1>
+      <div class="Container" id="dato">
+        <div class="Main-Container"><a class="Main-Boton2" id="boton_voler" href="#">Volver</a></div>
+      </div>
+      <table class="Main-Table">
+        <thead>
+          <tr class="Main-Fila-header">
+            <th class="Main-Columna">IdRepuesto</th>
+            <th class="Main-Columna">Nombre del Repuesto</th>
+            <th class="Main-Columna">Cantidad</th>
+
+          </tr>
+        </thead>
+        <tbody id="a_tbody">            
+        </tbody>
+      </table>
+      <div class="container-boton"><a id ="AgregarEtapa"class="boton" href="#">Registrar Repuesto</a>
+      </div>
+    </main>
+  </body>
+  <script src="../js/jquery.js"></script>
+  <script src="../Js/HistorialRepuestos.js"></script>
+</html>

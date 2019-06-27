@@ -1,0 +1,40 @@
+include ../mixins/header.pug
+include ../mixins/table.pug
+include ../mixins/formulariocontent.pug
+include ../mixins/boton.pug
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title TecFlex
+        link(rel="stylesheet", href="./../style.css")
+        link(href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:400,500,700&display=swap", rel="stylesheet")
+    body
+        +header("Buscar Producto","#","Cerrar Sesión","#","../asserts/logo.png")
+        main.Main
+
+            h1.Main-Title|Historial de Solicitud de Reparación
+            .Main-Producto
+                .Main-IdProducto
+                    h2.Main-Subtitle="Id del Producto"
+                    p.Main-Date=1
+                .Main-NameProducto
+                    h2.Main-Subtitle="Nombre del Producto"
+                    p.Main-Date="Lector"
+                .Main-FechaProblema
+                    h2.Main-Subtitle="Fecha del Problema"
+                    p.Main-Date="28/05/2019"
+                .Main-Container
+                    a.Main-Boton(type="submit")="Volver"
+                    
+            +Table('Nombre del Producto','Id del Producto','Garantia','Fecha de Venta','Reparación','Etapa')             
+                +AdicionalB('Molino','76043228','Si','21/04/2019','No')
+                +AdicionalB('Molino','76043228','Si','21/04/2019','No')
+
+            .containers-boton
+                +boton("Registrar Respuesta")
+                +boton("Agragar Etapa")
+    script(src="../js/jquery.js")
+       

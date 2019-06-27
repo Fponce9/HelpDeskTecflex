@@ -1,0 +1,38 @@
+.containers-boton{
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2em;
+}
+
+.container-boton{
+    margin-top: 2em;
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    & .boton{
+        position: absolute;
+        right: 0;
+    }
+}
+
+.boton{
+    font-family: 'Noto Sans HK', 'sans-serif';
+    background: $Secondary-Color;
+    border: 1px solid $Secondary-Color;
+    border-radius: .5em;
+    font-size: 0.9em;
+    color: $Tertiary-Color;
+    padding: .75em;
+
+    &:hover{
+        background: $Primary-Color;
+        border: 1px solid $Primary-Color;
+
+        
+    }
+
+}

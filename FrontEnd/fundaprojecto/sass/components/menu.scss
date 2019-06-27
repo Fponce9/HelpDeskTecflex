@@ -1,0 +1,15 @@
+.Menu{
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    &-Submenu{
+        display: flex;
+    }
+    &-Link{
+        color: $Tertiary-Color;
+        margin-left: 1em;
+        
+
+    }
+}

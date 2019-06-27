@@ -111,6 +111,12 @@ namespace TecnicoWeb3.Controllers
             var q = from p in db.Etapa where p.Solicitud_Reparacion_idProblema.Equals(idSolicitud) select p;
             return q;
         }
+        [Route("api/EtapaId/{idEtapa}")]
+        public IQueryable<Etapa> GetEtapa_Id(int idEtapa)
+        {
+            var q = from p in db.Etapa where p.IdEtapa == idEtapa select p;
+            return q;
+        }
 
         protected override void Dispose(bool disposing)
         {

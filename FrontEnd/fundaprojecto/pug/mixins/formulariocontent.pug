@@ -1,0 +1,58 @@
+mixin formcont(id_name,NombreEtapa,...opciones)    
+    .Formulario-Content
+        label.Formulario-Label(for="name")=NombreEtapa
+        select.Formulario-Input(name="select",id="id_name")
+            each opcion in opciones
+                option(value=opcion)=opcion
+
+
+
+
+
+mixin formcont2(id_name,NombreEtapa)    
+    .Formulario-Content
+        label.Formulario-Label(for="name")=NombreEtapa
+        input.Formulario-Input(type="date",id = id_name) 
+
+mixin formcont3(id_name,NombreEtapa)    
+    .Formulario-Content
+        label.Formulario-Label(for="name")=NombreEtapa
+        textarea.Formulario-Input.Formulario-Big(id = id_name)   
+
+
+mixin formcont4(NombreEtapa)    
+    .Formulario-Content
+        label.Formulario-Label(for="name")=NombreEtapa
+        input.Formulario-Input(type="password") 
+
+mixin formcont5(NombreEtapa,idname)    
+    .Formulario-Content
+        label.Formulario-Label(for="name")=NombreEtapa
+        input.Formulario-Input(type="text",id=idname) 
+
+
+mixin Labels(name,date)    
+    .Formulario-Content
+        label.Formulario-Label(for="name")=name
+        label.Formulario-Label-normal(for="name")=date 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

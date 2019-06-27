@@ -1,0 +1,160 @@
+.Container{
+    width: 100%;
+    height: 5em;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-gap: 1em;
+    
+}
+.Main{
+    position: relative;
+    max-width: $Main-Width-Max;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2em;
+    padding-right: 2em;
+    color: black;
+    font-weight: bold;
+    
+    &-Title{
+        text-align: center;
+        margin-top: 2em;
+    }
+    
+    &-Producto{
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        text-align: center;
+    }
+    &-Producto2{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    &-Producto3{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        gap: 4em;
+    }
+    
+    &-NameProducto2{
+        display: flex;
+        font-size: 1em;
+        align-items: center;
+        justify-self: end;
+        grid-column-start: 2;
+    }
+    &-Container{
+        margin-top: auto;
+        margin-bottom: auto;
+        justify-self: start;
+        grid-column-start: 3;
+        grid-row-start: 1;
+    }
+
+    &-Container2{
+        margin-top: auto;
+        margin-bottom: auto;
+        justify-self: start;
+ 
+    }
+    &-Boton{
+        width: 10em;
+        margin-top:3em;
+        background: $Secondary-Color;
+        color: $Tertiary-Color;
+        border: 1px solid $Secondary-Color;
+        border-radius: .5rem;
+        padding: 0.5em;
+        &:hover{
+            background: $Primary-Color;
+            border: 1px solid $Primary-Color;
+        }
+    }
+
+    &-Boton2{
+        
+        width: 10em;
+        background: $Secondary-Color;
+        color: $Tertiary-Color;
+        border: 1px solid $Secondary-Color;
+        border-radius: .5rem;
+        padding: 0.5em;
+        
+    }
+    &-Table{
+        width: 80%;
+        
+        margin-top: 2em;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        border-spacing: 0;
+    }
+   
+    &-Fila{
+
+        &-header{
+            background: $Secondary-Color;
+            color: $Tertiary-Color;
+        }
+        color: $Tertiary-Color;
+        &:nth-child(odd){
+            background: $Primary-Color;
+            & .Table-Boton{
+                background: $Primary-Color;
+                border: 1px solid $Primary-Color;
+                border-radius: .5em;
+                padding: .5em;
+                color: $Tertiary-Color;
+                &:hover{
+                    background: $Secondary-Color;
+                    border: 1px solid $Secondary-Color;
+                }
+            } 
+            
+        }
+        &:nth-child(even){
+            background: $Secondary-Color;
+            & .Table-Boton{
+                background: $Secondary-Color;
+                border: 1px solid $Secondary-Color;
+                border-radius: .5em;
+                padding: .5em;
+                color: $Tertiary-Color;
+                &:hover{
+                    background: $Primary-Color;
+                    border: 1px solid $Primary-Color;
+                }
+            } 
+        }
+
+        }
+        
+    
+
+    &-Columna{
+        max-width: 25%;
+        padding: 1em;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
