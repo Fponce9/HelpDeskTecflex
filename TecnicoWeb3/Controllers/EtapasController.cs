@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using TecnicoWeb3.Models;
@@ -128,7 +125,5 @@ namespace TecnicoWeb3.Controllers
         {
             return db.Etapa.Count(e => e.IdEtapa == id) > 0;
         }
-
-
     }
 }
