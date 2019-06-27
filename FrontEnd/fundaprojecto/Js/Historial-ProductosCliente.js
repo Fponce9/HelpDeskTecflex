@@ -56,14 +56,14 @@ $(function(){
 function SRProducto(element, id_producto){
 	console.log(id_producto);
 	localStorage.setItem('id_producto', id_producto);
-	element.href = "Solicitud-Reparacion-Producto.html";
+	element.href = "Solicitud-Reparacion-ProductoCliente.html";
 }
 
 
 $(document).ready(function(){
     $('#volver_vli').click(function(){
         
-        document.getElementById("volver_vli").href = "BuscarCliente-Datos.html";
+        document.getElementById("volver_vli").href = "Cliente.html";
        
     })
 });

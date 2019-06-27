@@ -19,11 +19,10 @@
     </header>
     <main class="Main">
       <h1 class="Main-Title">Registrar Nueva Etapas</h1>
-      <form class="Formulario" action="sendmail.php" method="post">
+      <form class="Formulario" >
         <div class="Formulario-Content">
           <label class="Formulario-Label" for="name">Nombre de Etapa</label>
           <select class="Formulario-Input" name="select" id="iname">
-            <option value="Identificación">Identificación</option>
             <option value="Ingreso">Ingreso</option>
             <option value="Analizando">Analizando</option>
             <option value="Reparación">Reparación</option>
@@ -64,6 +63,7 @@
 				FechaIngreso:$idfecha.val(),
 				Solicitud_Reparacion_idProblema:localStorage.getItem('id_solicitud'),
 			};
+								alert('agregado correctamente');
 			$.ajax({
 				type:'POST',
 				dataType:'json',

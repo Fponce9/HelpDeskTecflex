@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TecFlex</title>
+    <link rel="stylesheet" href="./../style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:400,500,700&amp;display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header class="Header"><img class="Header-Logo" src="../asserts/logo.png" alt="Logo de TecFlex"/>
+      <div class="Header-Menu Menu">
+        <lu class="Menu-Submenu">
+          <li class="Menu-Iteam"><a class="Menu-Link" href="#">Buscar Producto</a></li>
+          <li class="Menu-submenu">   <a class="Menu-Link" href="#">Cerrar Sesión</a></li>
+        </lu>
+      </div>
+    </header>
+    <main class="Main">
+      <h1 class="Main-Title">Cliente</h1>
+      <form class="Formulario" action="#">
+        <div class="Formulario-Content">
+          <label class="Formulario-Label" for="name">Ingresar RUC: </label>
+          <input class="Formulario-Input" type="text" id="cliente_ruc"/>
+        </div>
+        <div class="container-boton"><a class="boton" href="#" id="boton_cliente">Buscar</a>
+        </div>
+      </form>
+    </main>
+  </body>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/Cliente.js"></script>
+</html>

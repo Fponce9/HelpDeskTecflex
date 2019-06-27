@@ -116,5 +116,12 @@ namespace TecnicoWeb3.Controllers
         {
             return db.Producto.Count(e => e.IdProducto == id) > 0;
         }
+
+        [Route("api/ProductosRuc/{RUC}")]
+        public IQueryable<Producto> GetProductosRuc(string RUC)
+        {
+            var q = from p in db.Producto where p.Cliente_RUC.Equals(RUC) select p;
+            return q;
+        }
     }
 }
